@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import ProfileSettings from './ProfileSettings';
 import {
   Box,
   Drawer,
@@ -19,6 +20,7 @@ import {
   Dashboard as DashboardIcon,
   PersonSearch as KYCIcon,
   People as UsersIcon,
+  Person as PersonIcon,
   ExitToApp as LogoutIcon
 } from '@mui/icons-material';
 import authService from '../api/authService';
@@ -98,7 +100,8 @@ const Dashboard = ({ setIsAuthenticated }) => {
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'KYC Management', icon: <KYCIcon />, path: '/dashboard/kyc-management' },
-    { text: 'User Management', icon: <UsersIcon />, path: '/dashboard/users' }
+    { text: 'User Management', icon: <UsersIcon />, path: '/dashboard/users' },
+    { text: 'Profile Settings', icon: <PersonIcon />, path: '/dashboard/profile' }
   ];
   
   return (
@@ -179,6 +182,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
           <Route path="/" element={<DashboardHome />} />
           <Route path="/kyc-management" element={<KYCManagement />} />
           <Route path="/users" element={<UserManagement />} />
+          <Route path="/profile" element={<ProfileSettings />} />
         </Routes>
       </Box>
     </Box>
